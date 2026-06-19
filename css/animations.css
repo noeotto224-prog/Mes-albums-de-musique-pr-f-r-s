@@ -1,0 +1,447 @@
+@import url('https://fonts.googleapis.com/css2?family=Cause:wght@100..900&display=swap');
+
+body {
+    background-color: #424242;
+    color: white;
+    font-family: Arial, sans-serif;
+    margin: 20px;
+}
+
+a {
+    color: white;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+h1, h2, h3 {
+    margin-bottom: 10px;
+}
+
+.album {
+    position: relative;
+    display: inline-block;
+    margin-bottom: 30px;
+}
+
+.album a:first-of-type img {
+    width: 300px;
+    position: relative;
+    z-index: 2;
+    transition: 0.3s;
+}
+
+.album > a:first-of-type:hover .cover {
+    transform: scale(1.05);
+    box-shadow: 0px 10px 25px rgba(0,0,0,0.6);
+}
+.vinyle-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+
+    transition: transform 0.3s ease;
+    transform: translateX(0px) translateY(1px) rotate(-67.5deg);
+
+    pointer-events: none;
+}
+
+.album:hover .vinyle-wrapper {
+    transform: translateX(200px) translateY(0px) rotate(0deg);
+
+    pointer-events: auto;
+}
+
+.vinyle {
+    width: 300px;
+    transform-origin: center;
+}
+
+@keyframes tourne {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.vinyle:hover {
+    animation: tourne 1.8s linear infinite;
+}
+
+.cover {
+    transition: 0.3s ease;
+    display: block;
+}
+
+.album:hover .cover {
+    transform: none;
+    box-shadow: none;
+}
+
+.bottom-left {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 200px;
+}
+
+body {
+    font-family: 'Cause', sans-serif;
+}
+
+.cover-fond {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+
+    width: 300px;
+
+    box-shadow: 0px 10px 30px rgba(0,0,0,0.5);
+
+    border-radius: 10px;
+}
+
+@keyframes balance {
+    0% {
+        transform: rotate(-24deg);
+    }
+
+    50% {
+        transform: rotate(-16deg);
+    }
+
+    100% {
+        transform: rotate(-24deg);
+    }
+}
+
+#play-random {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    font-size: 30px;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+
+#play-random {
+    position: fixed;
+    bottom: 23px;
+    right: 277px;
+    font-size: 30px;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+#play-random:hover {
+    transform: scale(1.2);
+}
+#next-track {
+    position: fixed;
+    bottom: 23px;
+    right: 23px;
+    font-size: 35px;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+#next-track:hover {
+    transform: scale(1.2);
+    opacity: 1;
+}
+
+#explosion {
+    position: absolute;
+    bottom: 40px;
+    left: -70px;
+    width: 550px;
+    pointer-events: none;
+    opacity: 0;
+}
+
+.cherry-head {
+    width: 150px;
+    position: relative;
+    z-index: 2;
+    bottom: -100px;
+    left: 100px;
+}
+
+#cherry-head {
+    position: relative;
+    z-index: 5;
+}
+
+#explosion {
+    position: absolute;
+    z-index: 10;
+}
+
+.album-chromakopia #play-random,
+.album-chromakopia #next-track {
+  color: #00823C;
+} 
+
+.album-cherry-bomb #play-random,
+.album-cherry-bomb #next-track {
+  color: #E5383F;
+}
+
+.album-graduation #play-random,
+.album-graduation #next-track {
+  color: #F2018E;
+}
+
+.album-alligator-bites-never-heal #play-random,
+.album-alligator-bites-never-heal #next-track {
+  color: #C6A989;
+}
+
+.album-red-moon-in-venus #play-random,
+.album-red-moon-in-venus #next-track {
+  color: #DD8940;
+}
+
+
+.cover-container {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+}
+
+#track-title {
+    position: absolute;
+    right: 305px;
+    bottom: 0px;
+
+    max-width: 500px;
+
+    color: white;
+    font-size: 18px;
+
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+#butterfly-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 9999;
+}
+
+.butterfly {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    pointer-events: none;
+    animation: fly 1.2s ease-out forwards;
+}
+
+@keyframes fly {
+    0% {
+        transform: translate(0, 0) scale(1);
+        opacity: 1;
+    }
+    100% {
+        transform: translate(var(--x), var(--y)) scale(0.6);
+        opacity: 0;
+    }
+}
+
+#corner-moon {
+    position: fixed;
+    bottom: 50px;
+    left: 50px;
+
+    width: 200px;
+    cursor: pointer;
+
+    animation: moonPulse 3s ease-in-out infinite;
+    transition: filter 0.5s ease;
+}
+
+@keyframes moonPulse {
+    0% {
+        transform: scale(1);
+        filter: drop-shadow(0 0 8px rgba(255,0,0,0.5));
+    }
+
+    50% {
+        transform: scale(1.1);
+        filter: drop-shadow(0 0 22px rgba(255,0,0,1));
+    }
+
+    100% {
+        transform: scale(1);
+        filter: drop-shadow(0 0 8px rgba(255,0,0,0.5));
+    }
+}
+
+.moon-click {
+    animation: moonClick 0.6s ease-out;
+}
+
+@keyframes moonClick {
+    0% {
+        transform: scale(1.15);
+        filter: drop-shadow(0 0 25px red);
+    }
+
+    50% {
+        transform: scale(1.4);
+        filter: drop-shadow(0 0 40px red);
+    }
+
+    100% {
+        transform: scale(1);
+        filter: drop-shadow(0 0 10px red);
+    }
+}
+
+.particle {
+    position: fixed;
+    width: 18px;
+    height: 18px;
+    pointer-events: none;
+    z-index: 9999;
+    filter: drop-shadow(0 0 6px red);
+
+    animation: fly 1s ease-out forwards;
+}
+
+.star {
+    width: 20px;
+    height: 20px;
+    background: red;
+    clip-path: polygon(
+        50% 0%,
+        61% 35%,
+        98% 35%,
+        68% 57%,
+        79% 91%,
+        50% 70%,
+        21% 91%,
+        32% 57%,
+        2% 35%,
+        39% 35%
+    );
+    filter: drop-shadow(0 0 6px red);
+}
+
+
+@keyframes fly {
+    0% {
+        transform: translate(0, 0) scale(1);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translate(var(--x), var(--y)) scale(0.6);
+        opacity: 0;
+    }
+}
+
+.moon-glow {
+    position: fixed;
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9998;
+
+    transform: translate(-50%, -50%);
+
+    background: radial-gradient(
+        circle,
+        rgba(255, 0, 0, 0.9) 0%,
+        rgba(255, 0, 0, 0.4) 40%,
+        rgba(255, 0, 0, 0) 70%
+    );
+
+    animation: glowFade 0.6s ease-out forwards;
+}
+
+@keyframes glowFade {
+    from {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(0.8);
+    }
+    to {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(1.6);
+    }
+}
+
+#graduation-bear {
+    position: fixed;
+    bottom: 10px;
+    left: -50px;
+
+    width: 250px;
+    cursor: pointer;
+
+    transition: transform 0.1s ease;
+}
+
+#graduation-bear:active {
+    transform: scale(0.9);
+} 
+
+.confetti {
+    position: fixed;
+
+    width: 10px;
+    height: 10px;
+
+    border-radius: 50%;
+
+    pointer-events: none;
+
+    animation: confettiFly 0.65s ease-out forwards;
+}
+
+@keyframes confettiFly {
+    0% {
+        transform: translate(0,0) scale(1);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translate(var(--x), var(--y)) scale(0);
+        opacity: 0;
+    }
+}
+
+#alligator {
+    position: fixed;
+    bottom: -20px;
+    left: -20px;
+
+    width: 400px;
+    cursor: pointer;
+
+    transition: transform 0.1s ease;
+}
